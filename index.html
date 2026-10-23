@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaestroIA - MVP</title>
+    <title>MaestroIA - Lector de Partituras y Audio</title>
     <style>
         body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
         .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
-        button { background: #6366f1; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 20px; }
+        button { background: #6366f1; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 20px; width: 90%; }
         button:hover { background: #4f46e5; }
-        select, input { padding: 10px; margin: 10px 0; width: 90%; border: 1px solid #ccc; border-radius: 5px; }
+        select, input { padding: 10px; margin: 10px 0; width: 90%; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .label-text { display: block; text-align: left; margin-left: 5%; font-weight: bold; font-size: 14px; color: #333; margin-top: 15px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🎵 MaestroIA</h1>
-        <p>Sube una canción y genera tu clase temática</p>
+        <p>Sube tu partitura o audio maestro para extraer el MIDI exacto</p>
         
-        <input type="file" id="audio" accept="audio/*">
+        <span class="label-text">1. Sube un PDF (Partitura) o Audio (WAV/MP3):</span>
+        <input type="file" id="archivo" accept="application/pdf, audio/*">
         
+        <span class="label-text">2. ¿Qué instrumento vamos a extraer/enseñar?</span>
         <select id="instrumento">
+            <option value="" disabled selected>Selecciona el instrumento...</option>
             <option value="piano">Teclado / Piano</option>
             <option value="guitarra">Guitarra</option>
             <option value="bajo">Bajo</option>
             <option value="voz">Voz</option>
         </select>
         
-        <input type="text" id="tematica" placeholder="Ej: Mario Bros, Dinosaurios, Star Wars">
+        <span class="label-text">3. Temática de la clase:</span>
+        <input type="text" id="tematica" placeholder="Ej: Super Mario, Halloween, Animales">
         
-        <button onclick="alert('¡Esta es tu web! Pronto conectaremos la IA.')">Generar Clase Automática</button>
+        <button onclick="alert('¡Interfaz actualizada! El archivo está listo para ser enviado al motor OMR (PDF) o Basic Pitch (Audio) para extraer el MIDI.')">Procesar a MIDI y Generar Clase</button>
     </div>
 </body>
 </html>
